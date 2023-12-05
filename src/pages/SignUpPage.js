@@ -89,19 +89,22 @@ const Container = styled.div`
     text-align: center;
     font-size: 2rem;
     color: white;
+    margin:1rem;
   }
   h1{
     padding:0 25rem;
+    margin-bottom: 0rem;
+    line-height: 1.2;
   }
   h4{
-    margin-top:-2rem;
+    margin-top:0rem;
   }
   h6{
-    margin-top: -1.7rem;
+    margin-top: 0.5rem;
   }
  }
  .form{
-  margin-top: -1.5rem;
+  margin-top: 4rem;
   display:grid;
   width:60%;
   grid-template-columns: ${({showPassword})=>showPassword ? '1fr 1fr' : '2fr 1fr'};
