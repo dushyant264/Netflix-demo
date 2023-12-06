@@ -7,20 +7,21 @@ import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 
-const Card = () => {
+
+const Card = ({movieData}) => {
     const navigate = useNavigate()
     const [Onhovered, setOnHovered] = useState(false)
   return (
     <CardContainer onMouseEnter={()=>setOnHovered(true)} onMouseLeave={()=>setOnHovered(false)}>
         
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU' 
+        <img src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
         alt='movie poster'
         onClick={()=>navigate('/player')}
         />
         {Onhovered && (
            <div className='hover'>
             <div className='image-video-wrappet'>
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU' 
+            <img src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
            alt='movie poster'
            onClick={()=>navigate('/player')}
            />
@@ -47,9 +48,9 @@ const Card = () => {
                 </div>
                 <div className='genres'>
                     <ul>
-                        <li>Action</li>
-                        <li>Adventure</li>
-                        <li>Comedy</li>
+                       {movieData.genres.map((genre)=>{
+                           <li>{genre}</li>
+                       })}
                     </ul>
                 </div>
             </div>

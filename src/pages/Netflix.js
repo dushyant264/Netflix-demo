@@ -3,20 +3,30 @@ import TopNav from '../components/TopNav';
 import styled from 'styled-components';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {FaPlay} from 'react-icons/fa' ;
-import { useNavigate } from 'react-router-dom';
-import Card from '../components/Card';
 import {useDispatch, useSelector} from 'react-redux' ;
-import { getGenres } from '../store';
+import { useNavigate } from 'react-router-dom';
+import SliderContainer from '../components/sliderContainer'
+import { fetchMovies, getGenres } from '../store';
+
+
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const genresLoaded=useSelector((state)=>state.genres.loaded);
+  const movies=useSelector((state)=>state.netflix.movies);
+  const genresLoaded=useSelector((state)=>state.netflix.genresLoaded);
   useEffect(() => {
     dispatch(getGenres());
-  },[]);
+  });
+
+  useEffect(() => {
+    
+    if(genresLoaded) {
+      dispatch(fetchMovies({type:'all'}))
+    }
+  });
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,7 +39,8 @@ const Netflix = () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
-  console.log(isScrolled)
+  
+   console.log(movies);
   return (
     <Herocontainer>
       <div className='hero'>
@@ -53,7 +64,7 @@ const Netflix = () => {
         </div>
        </div>
       </div>
-      <Card/>
+      <SliderContainer movies={movies}/>
     </Herocontainer>
   )
 }
