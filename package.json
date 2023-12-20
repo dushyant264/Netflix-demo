@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://dushyant264.github.io/client",
+  "homepage": "https://dushyant264.github.io/client/",
 
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
