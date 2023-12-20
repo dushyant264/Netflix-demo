@@ -38,6 +38,7 @@ import {
           id: movie.id,
           name: movie.original_name ? movie.original_name : movie.original_title,
           image: movie.backdrop_path,
+          overview: movie.overview,
           genres: moviesGenres.slice(0,3)
       })
     })

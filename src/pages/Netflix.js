@@ -45,7 +45,7 @@ const Netflix = () => {
     <Herocontainer>
       <div className='hero'>
        <TopNav isScrolled={isScrolled}/>
-       <img src="https://res.cloudinary.com/ehizeex-shop/image/upload/v1668267540/NetflixApp/avengers-age-of-ultron-team-together-poster-wallpaper-1600x600-92751_84_qvwbif.jpg" alt="hero image" />
+       <img src="https://c4.wallpaperflare.com/wallpaper/82/204/3/keanu-reeves-john-wick-movies-john-wick-chapter-2-wallpaper-preview.jpg" alt="hero image" />
        <div className='container'>
         <div className='title'>
           <h1>Super Man</h1>

@@ -10,13 +10,17 @@ import { BsCheck } from "react-icons/bs";
 
 const Card = ({movieData}) => {
     const navigate = useNavigate()
-    const [Onhovered, setOnHovered] = useState(false)
+    const [Onhovered, setOnHovered] = useState(false);
+    const handleCardClick = () => {
+      navigate(`/movie/${movieData.id}`, { state: { movie: movieData } });
+    };
+  
   return (
     <CardContainer onMouseEnter={()=>setOnHovered(true)} onMouseLeave={()=>setOnHovered(false)}>
         
         <img src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
         alt='movie poster'
-        onClick={()=>navigate('/player')}
+        onClick={handleCardClick}
         />
         {Onhovered && (
            <div className='hover'>
@@ -30,7 +34,7 @@ const Card = ({movieData}) => {
            />
             </div>
             <div className='info-container'>
-                <h3 onClick={()=>navigate('/player')} className='movieName'>Red Notice</h3>
+                <h3 onClick={handleCardClick} className='movieName'>{movieData.name}</h3>
                 <div className='icons'>
                     <div className='controls'>
                         <IoPlayCircleSharp
@@ -47,11 +51,11 @@ const Card = ({movieData}) => {
                     </div>
                 </div>
                 <div className='genres'>
-                    <ul>
-                       {movieData.genres.map((genre)=>{
-                           <li>{genre}</li>
-                       })}
-                    </ul>
+                  <ul>
+                    {movieData.genres.map((genre) => {
+                      return <li>{genre}</li>;
+                    })}
+                  </ul>
                 </div>
             </div>
            </div>
