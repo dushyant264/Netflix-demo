@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TopNav from '../components/TopNav';
 import styled from 'styled-components';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
-import {FaPlay} from 'react-icons/fa' ;
 import {useDispatch, useSelector} from 'react-redux' ;
 import { useNavigate } from 'react-router-dom';
 import SliderContainer from '../components/sliderContainer'
@@ -45,7 +43,7 @@ const Netflix = () => {
     <Herocontainer>
       <div className='hero'>
        <TopNav isScrolled={isScrolled}/>
-       <img src="https://c4.wallpaperflare.com/wallpaper/82/204/3/keanu-reeves-john-wick-movies-john-wick-chapter-2-wallpaper-preview.jpg" alt="hero image" />
+       <img src="https://c4.wallpaperflare.com/wallpaper/82/204/3/keanu-reeves-john-wick-movies-john-wick-chapter-2-wallpaper-preview.jpg" alt=''/>
        <div className='container'>
         <div className='title'>
           <h1>Super Man</h1>
